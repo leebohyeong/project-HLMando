@@ -1,0 +1,7 @@
+
+:root {
+  --site-min-width: 1046px;
+  --site-max-width: 1142px;
+  --site-padding-horizon: 48px;
+  --site-container-min-width: calc(var(--site-min-width) + var(--site-padding-horizon) * 2);
+}

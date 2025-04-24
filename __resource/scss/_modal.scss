@@ -1,0 +1,91 @@
+@use "sass:math";
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+
+    &--open {
+        display: block;
+    }
+
+    &__backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity .15s linear;
+        background: rgba(#000, .23)
+    }
+
+    &__dialog {
+        position: relative;
+        pointer-events: none;
+        transform: translate(0, -50px);
+        opacity: 0;
+        transition: transform .3s ease-out, opacity .15s linear;
+        margin: 100px auto;
+    }
+
+    &__container {
+        overflow: hidden;
+        position: relative;
+        max-width: 605px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        //padding: ;
+        background: #fff;
+        box-sizing: border-box;
+        pointer-events: auto;
+    }
+
+    &__submit {
+        display: block;
+        border: none;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 100;
+
+        &-button {
+            display: block;
+            position: relative;
+            //width: ;
+            //height: ;
+            //background: ;
+            border: none;
+        }
+
+        &-text {
+            @include visually-hidden;
+        }
+    }
+
+    &--fade & {
+        &__backdrop {
+            opacity: 1;
+        }
+
+        &__dialog {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
+.modal-open {
+    overflow: hidden;
+    height: 100%;
+}
